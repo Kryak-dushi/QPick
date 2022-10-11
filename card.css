@@ -1,0 +1,44 @@
+/*
+<div id="container_headphones" class="container">
+            <div class="card">
+                <img src="./assets/Apple AirPods.png">
+                <div class="card_row">
+                    <div class="card_column">
+                        <span>Name</span>
+                        <div class="card-rate_row">
+                            <img src="./assets/Rate.svg">
+                            <span>4.8</span>
+                        </div>
+                    </div>
+                    <div class="card_column">
+                        <span class="card_price">9237</span>
+                        <button class="card_action">Купить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+*/
+
+
+.card {
+    width: 200px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 0 black;
+    padding: 10px;
+}
+
+.card_img {}
+
+.card_row {
+    display: flex;
+    flex-direction: row;
+}
+
+.card_column {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0;
+}
+
+.card_rate_row {}
