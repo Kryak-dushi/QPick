@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="card.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <title>QPick</title>
 </head>
 
@@ -28,10 +25,25 @@
     </header>
 
     <main>
-        <div id="container_wire_headphones" class="container">
-            
+        <div id="container_headphones" class="container">
+            <div class="card">
+                <img class="card_img" src="./assets/Apple AirPods.png" />
+                <div class="card_row">
+                    <div class="card_column">
+                        <span>Name</span>
+                        <div class="card_rate_row">
+                            <img src="./assets/Rate.svg">
+                            <span>4.8</span>
+                        </div>
+                    </div>
+                    <div class="card_column">
+                        <span class="card_price">9237</span>
+                        <button data-sku="1" class="card_action">Купить</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="container_wireless_headphones" class="container">
+        <div id="container_wireless_headphones">
 
         </div>
     </main>
@@ -48,7 +60,7 @@
         <div class="footer_column">
             <a href="">Условия сервиса</a>
             <div class="footer_row">
-                <img class="icon" src="./assets/Language.png">
+                <img src="./assets/Language.png">
                 <a href="">Рус</a>
                 <a href="">Eng</a>
             </div>

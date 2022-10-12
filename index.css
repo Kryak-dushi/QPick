@@ -10,6 +10,10 @@ body {
     height: 30px;
 }
 
+.icon{
+    height: 21px;
+}
+
 .container {}
 
 .counter {

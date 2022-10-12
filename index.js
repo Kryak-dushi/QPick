@@ -4,39 +4,46 @@ const headphones = [
         img: "./assets/Apple BYZ S8521.png",
         title: "Apple BYZ S8521",
         price: 2927,
+        priceBeforeDiscount: 3527,
         rate: 4.7,
     },
     {
+        sku: 2,
         img: "./assets/Apple EarPods.png",
         title: "Apple EarPods",
         price: 2327,
         rate: 4.5,
     },
     {
+        sku: 3,
         img: "./assets/Apple EarPods Case.png",
         title: "Apple EarPods",
         price: 2327,
         rate: 4.5,
     },
     {
+        sku: 4,
         img: "./assets/Apple BYZ S8521.png",
         title: "Apple BYZ S8521",
         price: 2927,
         rate: 4.7,
     },
     {
+        sku: 5,
         img: "./assets/Apple EarPods.png",
         title: "Apple EarPods",
         price: 2327,
         rate: 4.5,
     },
     {
+        sku: 6,
         img: "./assets/Apple EarPods Case.png",
         title: "Apple EarPods",
         price: 2327,
         rate: 4.5,
     },
     {
+        sku: 7,
         img: "./assets/Apple AirPods.png",
         title: "Apple AirPods",
         price: 9527,
@@ -44,83 +51,72 @@ const headphones = [
         wireless: true,
     },
     {
-        img: ".assets/GERLAX GH-04.png",
-        title: "Apple AirPods",
-        price: 9527,
+        sku: 8,
+        img: "./assets/GERLAX GH-04.png",
+        title: "GERLAX GH-04",
+        price: 6527,
         rate: 4.7,
         wireless: true,
     },
     {
-        img: ".assets/BOROFONE BO4.png",
-        title: "Apple AirPods",
-        price: 9527,
+        sku: 9,
+        img: "./assets/BOROFONE BO4.png",
+        title: "BOROFONE BO4",
+        price: 7527,
         rate: 4.7,
         wireless: true,
     },
 ]
 
-function createCards(data, container) {
-    data.forEach(element => {
-        let card = document.createElement('div');
-
-        let img = document.createElement('img');
-        img.className = "card_image";
-        img.src = element.img;
-        img.alt = element.name + " image";
-
-        let name = document.createElement('p');
-        name.className = "card_name";
-        name.innerHTML = element.name;
-
-        let rateImg = document.createElement('img');
-        rateImg.className = "icon";
-        rateImg.src = './assets/Rate.svg';
-
-        let rate = document.createElement('p');
-        rate.className = "card_rate";
-        rate.innerHTML = element.rate;
-
-        let price = document.createElement('p');
-        price.className = "card_price";
-        price.innerHTML = element.price;
-
-        let priceBeforeSale = document.createElement('p');
-
-        let button = document.createElement('button');
-        button.addEventListener('click', function () {
-
-        });
-
-        card.append(img, name, price, priceBeforeSale, rateImg, rate, button);
-
-        container.append(card);
-    });
-}
-
 function renderCard(elem) {
-    return `
-    <div class="card">
-                <img class="card_img" src="./assets/Apple AirPods.png" />
-                <div class="card_row">
-                    <div class="card_column">
-                        <span>Name</span>
-                        <div class="card_rate_row">
-                            <img src="./assets/Rate.svg">
-                            <span>4.8</span>
-                        </div>
+    return `<div class="card">
+                <div class="card_img_container">
+                    <img class="card_img" src="${elem.img}" />
+                </div>
+                <div class="card_info">
+                    <div class="card_info_row">
+                        <span class="card_name">${elem.title}</span>
+                        <span class="card_price">${elem.price}</span>
                     </div>
-                    <div class="card_column">
-                        <span class="card_price">9237</span>
-                        <button class="card_action">Купить</button>
+                    <div class="card_info_row">
+                        <div class="card_rate_row">
+                            <img class="icon" src="./assets/Rate.svg">
+                            <span class="card_rate">${elem.rate}</span>
+                        </div>
+                        <button data-sku="${elem.sku}" class="card_action">Купить</button>
                     </div>
                 </div>
-            </div>
-    `;
+            </div>`;
 }
 
+function renderDiscountCard(elem) {
+    return `<div class="card">
+                <div class="card_img_container">
+                    <img class="card_img" src="${elem.img}" />
+                </div>
+                <div class="card_info">
+                    <div class="card_info_row">
+                        <span class="card_name">${elem.title}</span>
+                        <span class="card_price">${elem.price}</span>
+                    </div>
+                    <div class="card_info_row">
+                        <span class="card_price_before_discount">${elem.priceBeforeDiscount}</span>
+                    </div>
+                    <div class="card_info_row">
+                        <div class="card_rate_row">
+                            <img class="icon" src="./assets/Rate.svg">
+                            <span class="card_rate">${elem.rate}</span>
+                        </div>
+                        <button data-sku="${elem.sku}" class="card_action">Купить</button>
+                    </div>
+                </div>
+            </div>`;
+}
 
 
 window.onload = () => {
+    createCards();
+
     const actions = Array.from(document.querySelectorAll('.card_action'));
     actions.forEach(button => {
         button.addEventListener('click', function (event) {
@@ -129,16 +125,29 @@ window.onload = () => {
             // обновить номер в корзине
         });
     })
-
-
-    //createCards1(wireless_headphones, document.getElementById('container_wireless_headphones'));
-    //createCards1(headphones, document.getElementById('container_headphones'));
 }
 
-function createCards1(data, container) {
-    data.forEach(elem => {
+function createCards() {
+    let wirelessContainer = document.getElementById('container_wireless_headphones');
+    let wireContainer = document.getElementById('container_wire_headphones');
+
+    headphones.forEach(elem => {
+
         let div = document.createElement('div');
-        div.innerHTML = renderCard(elem);
-        container.append(div);
+
+        if (elem.priceBeforeDiscount) {
+            div.innerHTML = renderDiscountCard(elem);
+        } else {
+            div.innerHTML = renderCard(elem);
+        }
+
+        if (elem.wireless) {
+
+            console.log(elem);
+            console.log(div);
+            wirelessContainer.append(div);
+        } else {
+            wireContainer.append(div);
+        }
     })
 }
