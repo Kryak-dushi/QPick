@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #EAEAEA;
+  font-family: 'Montserrat';
+  font-style: normal;
+}
+
+.root {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.icon {
+  height: 21px;
+}
+
+.content {
+  height: auto;
+}
+
+.section {
+  width: 1140px;
+  margin: 5px auto;
+}
+
+.section_name {
+  display: block;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #838383;
+  margin: 13px 0px 8px 15px;
+}
+
+.cards_container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width:1140px) {
+  .section {
+    width: 760px;
+  }
+}

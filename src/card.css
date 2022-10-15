@@ -1,12 +1,11 @@
 .card {
     width: 350px;
-    height: 400px;
+    height: fit-content;
     background: #FFFFFF;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
     font-weight: 600;
-    padding: 15px 22px 32px 22px;
-    margin: 30px;
+    margin: 15px;
 }
 
 .card_img_container {
@@ -22,6 +21,7 @@
 }
 
 .card_info {
+    padding: 15px 22px 32px 22px;
     display: flex;
     height: 80px;
     flex-direction: column;
@@ -78,4 +78,8 @@
     color: #000000;
     background-color: white;
     border: 0;
+}
+
+.card_action:hover {
+    color: #838383;
 }
