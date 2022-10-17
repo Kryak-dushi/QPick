@@ -23,6 +23,14 @@
     padding: 0px 18px;
 }
 
+.cart_card_row:first-child {
+    margin-top: 18px;
+}
+
+.cart_card_row:last-child {
+    margin-bottom: 17px;
+}
+
 .cart_card_img {
     height: 136px;
 }
@@ -38,6 +46,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    height: 100%;
 }
 
 .cart_card_title {
@@ -45,6 +54,7 @@
     font-size: 17px;
     line-height: 21px;
     color: #1C1C27;
+    margin-top: calc(50% - 0.5em);
 }
 
 .cart_card_price {
@@ -58,6 +68,7 @@
     display: flex;
     align-items: center;
     gap: 13px;
+    user-select: none;
 }
 
 .cart_card_counter {
@@ -94,6 +105,7 @@
     font-size: 15px;
     line-height: 18px;
     color: #1C1C27;
+    margin: auto 0px;
 }
 
 @media (max-width:1140px) {
